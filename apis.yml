@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Service Catalog
-  - IT Governance
+  - AWS
   - Cloud Governance
   - Compliance
-  - AWS
+  - IT Governance
+  - Service Catalog
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/servicecatalog/
     baseURL: https://servicecatalog.amazonaws.com
     tags:
-      - Service Catalog
-      - IT Governance
       - Cloud Governance
+      - IT Governance
+      - Service Catalog
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
