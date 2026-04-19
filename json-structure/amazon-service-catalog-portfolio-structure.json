@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/json-structure/amazon-service-catalog-portfolio-structure.json",
+  "name": "Portfolio",
+  "description": "Information about a Service Catalog portfolio.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The portfolio identifier.",
+      "example": "port-a1b2c3d4"
+    },
+    "ARN": {
+      "type": "string",
+      "description": "The ARN assigned to the portfolio.",
+      "example": "arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4"
+    },
+    "DisplayName": {
+      "type": "string",
+      "description": "The name to use for display purposes.",
+      "example": "My IT Portfolio"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the portfolio.",
+      "example": "Approved IT services for the engineering team"
+    },
+    "CreatedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The UTC time stamp of the creation time."
+    },
+    "ProviderName": {
+      "type": "string",
+      "description": "The name of the portfolio provider.",
+      "example": "IT Team"
+    }
+  }
+}

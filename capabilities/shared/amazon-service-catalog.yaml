@@ -1,0 +1,238 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Service Catalog API"
+  description: "API for managing IT service catalogs, portfolios, products, and provisioned products for self-service IT governance."
+  tags:
+    - Amazon Service Catalog
+    - IT Governance
+    - Cloud Governance
+    - Compliance
+    - AWS
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: amazon-service-catalog
+      baseUri: https://servicecatalog.us-east-1.amazonaws.com
+      description: "Amazon Service Catalog REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 Credential={{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: portfolios
+          path: /portfolios
+          description: "Portfolio management operations"
+          operations:
+            - name: list-portfolios
+              method: GET
+              description: "Lists all portfolios in the account"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-portfolio
+              method: POST
+              description: "Creates a portfolio"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: describe-portfolio
+              method: GET
+              description: "Gets information about a portfolio"
+              inputParameters:
+                - name: PortfolioId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The portfolio identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-portfolio
+              method: DELETE
+              description: "Deletes a portfolio"
+              inputParameters:
+                - name: PortfolioId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The portfolio identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: products
+          path: /products
+          description: "Product management operations"
+          operations:
+            - name: search-products
+              method: GET
+              description: "Gets information about products"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-product
+              method: POST
+              description: "Creates a product"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: provisioned-products
+          path: /provisioned-products
+          description: "Provisioned product management"
+          operations:
+            - name: provision-product
+              method: POST
+              description: "Provisions a product"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: describe-provisioned-product
+              method: GET
+              description: "Gets information about a provisioned product"
+              inputParameters:
+                - name: ProvisionedProductId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The provisioned product identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: terminate-provisioned-product
+              method: DELETE
+              description: "Terminates a provisioned product"
+              inputParameters:
+                - name: ProvisionedProductId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The provisioned product identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: amazon-service-catalog-rest
+      resources:
+        - path: /v1/portfolios
+          name: portfolios
+          description: "Portfolio management"
+          operations:
+            - method: GET
+              name: list-portfolios
+              description: "List all portfolios"
+              call: "amazon-service-catalog.list-portfolios"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-portfolio
+              description: "Create a portfolio"
+              call: "amazon-service-catalog.create-portfolio"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/products
+          name: products
+          description: "Product catalog"
+          operations:
+            - method: GET
+              name: search-products
+              description: "Search products"
+              call: "amazon-service-catalog.search-products"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/provisioned-products
+          name: provisioned-products
+          description: "Provisioned product management"
+          operations:
+            - method: POST
+              name: provision-product
+              description: "Provision a product"
+              call: "amazon-service-catalog.provision-product"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: amazon-service-catalog-mcp
+      transport: http
+      tools:
+        - name: list-portfolios
+          description: "List all IT service portfolios"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "amazon-service-catalog.list-portfolios"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-portfolio
+          description: "Create a new IT service portfolio"
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "amazon-service-catalog.create-portfolio"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-products
+          description: "Search for approved IT service catalog products"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "amazon-service-catalog.search-products"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: provision-product
+          description: "Provision a product from the service catalog"
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "amazon-service-catalog.provision-product"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: describe-provisioned-product
+          description: "Get details about a provisioned product"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "amazon-service-catalog.describe-provisioned-product"
+          outputParameters:
+            - type: object
+              mapping: "$."

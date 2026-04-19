@@ -1,0 +1,60 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Portfolio": "aws:Portfolio",
+    "Id": {
+      "@id": "aws:Id",
+      "@type": "xsd:string"
+    },
+    "ARN": {
+      "@id": "aws:ARN",
+      "@type": "xsd:string"
+    },
+    "DisplayName": {
+      "@id": "aws:DisplayName",
+      "@type": "xsd:string"
+    },
+    "Description": {
+      "@id": "aws:Description",
+      "@type": "xsd:string"
+    },
+    "CreatedTime": {
+      "@id": "aws:CreatedTime",
+      "@type": "xsd:dateTime"
+    },
+    "ProviderName": {
+      "@id": "aws:ProviderName",
+      "@type": "xsd:string"
+    },
+    "ProductViewSummary": "aws:ProductViewSummary",
+    "ProductId": {
+      "@id": "aws:ProductId",
+      "@type": "xsd:string"
+    },
+    "Name": {
+      "@id": "aws:Name",
+      "@type": "xsd:string"
+    },
+    "Owner": {
+      "@id": "aws:Owner",
+      "@type": "xsd:string"
+    },
+    "ShortDescription": {
+      "@id": "aws:ShortDescription",
+      "@type": "xsd:string"
+    },
+    "Type": {
+      "@id": "aws:Type",
+      "@type": "xsd:string"
+    },
+    "ProvisionedProduct": "aws:ProvisionedProduct",
+    "RecordDetail": {
+      "@id": "aws:RecordDetail",
+      "@type": "@id"
+    }
+  }
+}

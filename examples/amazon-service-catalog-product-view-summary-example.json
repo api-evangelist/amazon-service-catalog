@@ -1,0 +1,8 @@
+{
+  "Id": "port-a1b2c3d4",
+  "ProductId": "port-a1b2c3d4",
+  "Name": "My-Name",
+  "Owner": "example-Owner",
+  "ShortDescription": "example-ShortDescription",
+  "Type": "CLOUD_FORMATION_TEMPLATE"
+}

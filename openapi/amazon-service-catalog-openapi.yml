@@ -1,0 +1,549 @@
+openapi: 3.1.0
+info:
+  title: Amazon Service Catalog API
+  description: >-
+    AWS Service Catalog enables organizations to create and manage catalogs of
+    IT services that are approved for use on AWS. IT administrators can create
+    and manage portfolios of products and control which users have access to
+    which products for compliant, self-service provisioning.
+  version: 2015-12-10
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/servicecatalog/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+
+servers:
+  - url: https://servicecatalog.{region}.amazonaws.com
+    variables:
+      region:
+        default: us-east-1
+        description: The AWS region.
+
+tags:
+  - name: Portfolios
+    description: Portfolio management operations
+  - name: Products
+    description: Product management operations
+  - name: Provisioned Products
+    description: Provisioned product management
+  - name: Service Actions
+    description: Service action management
+
+paths:
+
+  /portfolios:
+    get:
+      operationId: ListPortfolios
+      summary: Amazon Service Catalog List Portfolios
+      description: >-
+        Lists all portfolios in the account.
+      tags:
+        - Portfolios
+      parameters:
+        - name: PageSize
+          in: query
+          description: The maximum number of items to return.
+          schema:
+            type: integer
+        - name: PageToken
+          in: query
+          description: The page token for the next set of results.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  PortfolioDetails:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Portfolio'
+                  NextPageToken:
+                    type: string
+              examples:
+                ListPortfolios200Example:
+                  summary: Default ListPortfolios 200 response
+                  x-microcks-default: true
+                  value:
+                    PortfolioDetails:
+                      - Id: "port-a1b2c3d4"
+                        ARN: "arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4"
+                        DisplayName: "My IT Portfolio"
+                        Description: "Approved IT services"
+                        ProviderName: "IT Team"
+                    NextPageToken: null
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+    post:
+      operationId: CreatePortfolio
+      summary: Amazon Service Catalog Create Portfolio
+      description: >-
+        Creates a portfolio.
+      tags:
+        - Portfolios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePortfolioRequest'
+      responses:
+        '200':
+          description: Portfolio created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+              examples:
+                CreatePortfolio200Example:
+                  summary: Default CreatePortfolio 200 response
+                  x-microcks-default: true
+                  value:
+                    Id: "port-a1b2c3d4"
+                    DisplayName: "My IT Portfolio"
+                    ProviderName: "IT Team"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /portfolios/{PortfolioId}:
+    get:
+      operationId: DescribePortfolio
+      summary: Amazon Service Catalog Describe Portfolio
+      description: >-
+        Gets information about the specified portfolio.
+      tags:
+        - Portfolios
+      parameters:
+        - name: PortfolioId
+          in: path
+          required: true
+          description: The portfolio identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+              examples:
+                DescribePortfolio200Example:
+                  summary: Default DescribePortfolio 200 response
+                  x-microcks-default: true
+                  value:
+                    Id: "port-a1b2c3d4"
+                    DisplayName: "My IT Portfolio"
+                    ProviderName: "IT Team"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+    delete:
+      operationId: DeletePortfolio
+      summary: Amazon Service Catalog Delete Portfolio
+      description: >-
+        Deletes the specified portfolio.
+      tags:
+        - Portfolios
+      parameters:
+        - name: PortfolioId
+          in: path
+          required: true
+          description: The portfolio identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Portfolio deleted.
+        '400':
+          description: Bad request.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /products:
+    get:
+      operationId: SearchProducts
+      summary: Amazon Service Catalog Search Products
+      description: >-
+        Gets information about the products to which the caller has access.
+      tags:
+        - Products
+      parameters:
+        - name: Filters
+          in: query
+          description: Filter criteria for the search.
+          schema:
+            type: object
+        - name: PageSize
+          in: query
+          description: Maximum number of items to return.
+          schema:
+            type: integer
+        - name: PageToken
+          in: query
+          description: Pagination token.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ProductViewSummaries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductViewSummary'
+                  NextPageToken:
+                    type: string
+              examples:
+                SearchProducts200Example:
+                  summary: Default SearchProducts 200 response
+                  x-microcks-default: true
+                  value:
+                    ProductViewSummaries:
+                      - Id: "prodview-a1b2c3"
+                        ProductId: "prod-a1b2c3"
+                        Name: "EC2 Instance"
+                        Type: "CLOUD_FORMATION_TEMPLATE"
+                    NextPageToken: null
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+    post:
+      operationId: CreateProduct
+      summary: Amazon Service Catalog Create Product
+      description: >-
+        Creates a product.
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductRequest'
+      responses:
+        '200':
+          description: Product created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+              examples:
+                CreateProduct200Example:
+                  summary: Default CreateProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    ProductViewDetail:
+                      ProductViewSummary:
+                        Id: "prodview-a1b2c3"
+                        ProductId: "prod-a1b2c3"
+                        Name: "EC2 Instance"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /provisioned-products:
+    post:
+      operationId: ProvisionProduct
+      summary: Amazon Service Catalog Provision Product
+      description: >-
+        Provisions the specified product.
+      tags:
+        - Provisioned Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionProductRequest'
+      responses:
+        '200':
+          description: Product provisioning started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionedProduct'
+              examples:
+                ProvisionProduct200Example:
+                  summary: Default ProvisionProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    RecordDetail:
+                      RecordId: "rec-a1b2c3d4"
+                      ProvisionedProductName: "my-ec2-instance"
+                      Status: "IN_PROGRESS"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /provisioned-products/{ProvisionedProductId}:
+    get:
+      operationId: DescribeProvisionedProduct
+      summary: Amazon Service Catalog Describe Provisioned Product
+      description: >-
+        Gets information about the specified provisioned product.
+      tags:
+        - Provisioned Products
+      parameters:
+        - name: ProvisionedProductId
+          in: path
+          required: true
+          description: The provisioned product identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionedProduct'
+              examples:
+                DescribeProvisionedProduct200Example:
+                  summary: Default DescribeProvisionedProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    ProvisionedProductDetail:
+                      Id: "pp-a1b2c3d4"
+                      Name: "my-ec2-instance"
+                      Status: "AVAILABLE"
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+    delete:
+      operationId: TerminateProvisionedProduct
+      summary: Amazon Service Catalog Terminate Provisioned Product
+      description: >-
+        Terminates the specified provisioned product.
+      tags:
+        - Provisioned Products
+      parameters:
+        - name: ProvisionedProductId
+          in: path
+          required: true
+          description: The provisioned product identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Termination initiated.
+        '400':
+          description: Bad request.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+components:
+  schemas:
+    Portfolio:
+      type: object
+      description: Information about a Service Catalog portfolio.
+      properties:
+        Id:
+          type: string
+          description: The portfolio identifier.
+          example: "port-a1b2c3d4"
+        ARN:
+          type: string
+          description: The ARN assigned to the portfolio.
+          example: "arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4"
+        DisplayName:
+          type: string
+          description: The name to use for display purposes.
+          example: "My IT Portfolio"
+        Description:
+          type: string
+          description: The description of the portfolio.
+          example: "Approved IT services for the engineering team"
+        CreatedTime:
+          type: string
+          format: date-time
+          description: The UTC time stamp of the creation time.
+        ProviderName:
+          type: string
+          description: The name of the portfolio provider.
+          example: "IT Team"
+
+    ProductViewSummary:
+      type: object
+      description: Summary information about a product view.
+      properties:
+        Id:
+          type: string
+          description: The product view identifier.
+          example: "prodview-a1b2c3"
+        ProductId:
+          type: string
+          description: The product identifier.
+          example: "prod-a1b2c3"
+        Name:
+          type: string
+          description: The name of the product.
+          example: "EC2 Instance"
+        Owner:
+          type: string
+          description: The owner of the product.
+          example: "IT Team"
+        ShortDescription:
+          type: string
+          description: Short description of the product.
+        Type:
+          type: string
+          description: The product type.
+          enum:
+            - CLOUD_FORMATION_TEMPLATE
+            - MARKETPLACE
+            - TERRAFORM_OPEN_SOURCE
+            - TERRAFORM_CLOUD
+            - EXTERNAL
+
+    Product:
+      type: object
+      description: Information about a Service Catalog product.
+      properties:
+        ProductViewDetail:
+          type: object
+          properties:
+            ProductViewSummary:
+              $ref: '#/components/schemas/ProductViewSummary'
+            Status:
+              type: string
+            ProductARN:
+              type: string
+
+    ProvisionedProduct:
+      type: object
+      description: Information about a provisioned product.
+      properties:
+        RecordDetail:
+          type: object
+          properties:
+            RecordId:
+              type: string
+              description: The identifier of the record.
+              example: "rec-a1b2c3d4"
+            ProvisionedProductName:
+              type: string
+              description: The user-friendly name of the provisioned product.
+              example: "my-ec2-instance"
+            Status:
+              type: string
+              description: The status of the provisioned product.
+              enum:
+                - CREATED
+                - IN_PROGRESS
+                - IN_PROGRESS_IN_ERROR
+                - SUCCEEDED
+                - FAILED
+            ProvisionedProductId:
+              type: string
+              description: The identifier of the provisioned product.
+
+    CreatePortfolioRequest:
+      type: object
+      required:
+        - DisplayName
+        - ProviderName
+        - IdempotencyToken
+      properties:
+        DisplayName:
+          type: string
+          description: The name to use for display purposes.
+        Description:
+          type: string
+          description: The description of the portfolio.
+        ProviderName:
+          type: string
+          description: The name of the portfolio provider.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier that you provide to ensure idempotency.
+
+    CreateProductRequest:
+      type: object
+      required:
+        - Name
+        - Owner
+        - ProductType
+        - ProvisioningArtifactParameters
+        - IdempotencyToken
+      properties:
+        Name:
+          type: string
+          description: The name of the product.
+        Owner:
+          type: string
+          description: The owner of the product.
+        Description:
+          type: string
+          description: The description of the product.
+        ProductType:
+          type: string
+          description: The type of product.
+          enum:
+            - CLOUD_FORMATION_TEMPLATE
+            - MARKETPLACE
+        ProvisioningArtifactParameters:
+          type: object
+          description: The configuration of the provisioning artifact.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier for idempotency.
+
+    ProvisionProductRequest:
+      type: object
+      required:
+        - ProductId
+        - ProvisioningArtifactId
+        - ProvisionedProductName
+        - ProvisionToken
+      properties:
+        ProductId:
+          type: string
+          description: The product identifier.
+        ProvisioningArtifactId:
+          type: string
+          description: The identifier of the provisioning artifact.
+        ProvisionedProductName:
+          type: string
+          description: The user-friendly name of the provisioned product.
+        ProvisioningParameters:
+          type: array
+          items:
+            type: object
+            properties:
+              Key:
+                type: string
+              Value:
+                type: string
+        ProvisionToken:
+          type: string
+          description: An idempotency token that uniquely identifies this provisioning request.
+
+  securitySchemes:
+    AWSSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication
+
+security:
+  - AWSSignatureV4: []

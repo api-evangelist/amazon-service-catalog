@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/json-structure/amazon-service-catalog-product-view-summary-structure.json",
+  "name": "ProductViewSummary",
+  "description": "Summary information about a product view.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The product view identifier.",
+      "example": "prodview-a1b2c3"
+    },
+    "ProductId": {
+      "type": "string",
+      "description": "The product identifier.",
+      "example": "prod-a1b2c3"
+    },
+    "Name": {
+      "type": "string",
+      "description": "The name of the product.",
+      "example": "EC2 Instance"
+    },
+    "Owner": {
+      "type": "string",
+      "description": "The owner of the product.",
+      "example": "IT Team"
+    },
+    "ShortDescription": {
+      "type": "string",
+      "description": "Short description of the product."
+    },
+    "Type": {
+      "type": "string",
+      "description": "The product type.",
+      "enum": [
+        "CLOUD_FORMATION_TEMPLATE",
+        "MARKETPLACE",
+        "TERRAFORM_OPEN_SOURCE",
+        "TERRAFORM_CLOUD",
+        "EXTERNAL"
+      ]
+    }
+  }
+}
