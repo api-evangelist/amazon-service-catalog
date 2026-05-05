@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-service-catalog",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/mt/tag/aws-service-catalog/",
+      "feed_url": "https://aws.amazon.com/blogs/mt/tag/aws-service-catalog/feed/",
+      "saved": 10,
+      "title": "AWS Service Catalog \u2013 AWS Cloud Operations Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:48Z"
+}
