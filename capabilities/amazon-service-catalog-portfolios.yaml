@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Service Catalog API — Portfolios
+  description: 'Amazon Service Catalog API — Portfolios. 4 operations. Lead operation: Amazon Service Catalog List Portfolios.
+    Self-contained Naftiko capability covering one Amazon Service Catalog business surface.'
+  tags:
+  - Amazon Service Catalog
+  - Portfolios
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_SERVICE_CATALOG_API_KEY: AMAZON_SERVICE_CATALOG_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-service-catalog-portfolios
+    baseUri: https://servicecatalog.{region}.amazonaws.com
+    description: Amazon Service Catalog API — Portfolios business capability. Self-contained, no shared references.
+    resources:
+    - name: portfolios
+      path: /portfolios
+      operations:
+      - name: listportfolios
+        method: GET
+        description: Amazon Service Catalog List Portfolios
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: PageSize
+          in: query
+          type: integer
+          description: The maximum number of items to return.
+        - name: PageToken
+          in: query
+          type: string
+          description: The page token for the next set of results.
+      - name: createportfolio
+        method: POST
+        description: Amazon Service Catalog Create Portfolio
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: portfolios-PortfolioId
+      path: /portfolios/{PortfolioId}
+      operations:
+      - name: describeportfolio
+        method: GET
+        description: Amazon Service Catalog Describe Portfolio
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: PortfolioId
+          in: path
+          type: string
+          description: The portfolio identifier.
+          required: true
+      - name: deleteportfolio
+        method: DELETE
+        description: Amazon Service Catalog Delete Portfolio
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: PortfolioId
+          in: path
+          type: string
+          description: The portfolio identifier.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_SERVICE_CATALOG_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-service-catalog-portfolios-rest
+    port: 8080
+    description: REST adapter for Amazon Service Catalog API — Portfolios. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/portfolios
+      name: portfolios
+      description: REST surface for portfolios.
+      operations:
+      - method: GET
+        name: listportfolios
+        description: Amazon Service Catalog List Portfolios
+        call: amazon-service-catalog-portfolios.listportfolios
+        with:
+          PageSize: rest.PageSize
+          PageToken: rest.PageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createportfolio
+        description: Amazon Service Catalog Create Portfolio
+        call: amazon-service-catalog-portfolios.createportfolio
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portfolios/{portfolioid}
+      name: portfolios-portfolioid
+      description: REST surface for portfolios-PortfolioId.
+      operations:
+      - method: GET
+        name: describeportfolio
+        description: Amazon Service Catalog Describe Portfolio
+        call: amazon-service-catalog-portfolios.describeportfolio
+        with:
+          PortfolioId: rest.PortfolioId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteportfolio
+        description: Amazon Service Catalog Delete Portfolio
+        call: amazon-service-catalog-portfolios.deleteportfolio
+        with:
+          PortfolioId: rest.PortfolioId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-service-catalog-portfolios-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Service Catalog API — Portfolios. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-service-catalog-list-portfolios
+      description: Amazon Service Catalog List Portfolios
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-service-catalog-portfolios.listportfolios
+      with:
+        PageSize: tools.PageSize
+        PageToken: tools.PageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-create-portfolio
+      description: Amazon Service Catalog Create Portfolio
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-service-catalog-portfolios.createportfolio
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-describe-portfolio
+      description: Amazon Service Catalog Describe Portfolio
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-service-catalog-portfolios.describeportfolio
+      with:
+        PortfolioId: tools.PortfolioId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-delete-portfolio
+      description: Amazon Service Catalog Delete Portfolio
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-service-catalog-portfolios.deleteportfolio
+      with:
+        PortfolioId: tools.PortfolioId
+      outputParameters:
+      - type: object
+        mapping: $.

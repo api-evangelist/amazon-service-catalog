@@ -1,0 +1,128 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Service Catalog API — Products
+  description: 'Amazon Service Catalog API — Products. 2 operations. Lead operation: Amazon Service Catalog Search Products.
+    Self-contained Naftiko capability covering one Amazon Service Catalog business surface.'
+  tags:
+  - Amazon Service Catalog
+  - Products
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_SERVICE_CATALOG_API_KEY: AMAZON_SERVICE_CATALOG_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-service-catalog-products
+    baseUri: https://servicecatalog.{region}.amazonaws.com
+    description: Amazon Service Catalog API — Products business capability. Self-contained, no shared references.
+    resources:
+    - name: products
+      path: /products
+      operations:
+      - name: searchproducts
+        method: GET
+        description: Amazon Service Catalog Search Products
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Filters
+          in: query
+          type: object
+          description: Filter criteria for the search.
+        - name: PageSize
+          in: query
+          type: integer
+          description: Maximum number of items to return.
+        - name: PageToken
+          in: query
+          type: string
+          description: Pagination token.
+      - name: createproduct
+        method: POST
+        description: Amazon Service Catalog Create Product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_SERVICE_CATALOG_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-service-catalog-products-rest
+    port: 8080
+    description: REST adapter for Amazon Service Catalog API — Products. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/products
+      name: products
+      description: REST surface for products.
+      operations:
+      - method: GET
+        name: searchproducts
+        description: Amazon Service Catalog Search Products
+        call: amazon-service-catalog-products.searchproducts
+        with:
+          Filters: rest.Filters
+          PageSize: rest.PageSize
+          PageToken: rest.PageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createproduct
+        description: Amazon Service Catalog Create Product
+        call: amazon-service-catalog-products.createproduct
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-service-catalog-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Service Catalog API — Products. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-service-catalog-search-products
+      description: Amazon Service Catalog Search Products
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-service-catalog-products.searchproducts
+      with:
+        Filters: tools.Filters
+        PageSize: tools.PageSize
+        PageToken: tools.PageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-create-product
+      description: Amazon Service Catalog Create Product
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-service-catalog-products.createproduct
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

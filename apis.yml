@@ -1,10 +1,8 @@
 aid: amazon-service-catalog
 name: Amazon Service Catalog
-description: >-
-  AWS Service Catalog enables organizations to create and manage catalogs of
-  IT services that are approved for use on AWS. IT administrators can create
-  and manage a portfolio of products (services, applications, and others) and
-  control which users have access to which products.
+description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for
+  use on AWS. IT administrators can create and manage a portfolio of products (services, applications, and others) and control
+  which users have access to which products.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -13,18 +11,15 @@ tags:
 - Compliance
 - IT Governance
 - Service Catalog
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-service-catalog:aws-service-catalog-api
   name: AWS Service Catalog API
-  description: >-
-    The AWS Service Catalog API provides programmatic access to create and
-    manage portfolios, products, provisioning artifacts, constraints, and
-    service actions for IT service governance and self-service provisioning.
+  description: The AWS Service Catalog API provides programmatic access to create and manage portfolios, products, provisioning
+    artifacts, constraints, and service actions for IT service governance and self-service provisioning.
   humanURL: https://aws.amazon.com/servicecatalog/
   baseURL: https://servicecatalog.amazonaws.com
   tags:
@@ -42,6 +37,12 @@ apis:
     url: https://aws.amazon.com/servicecatalog/pricing/
   - type: FAQ
     url: https://aws.amazon.com/servicecatalog/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-service-catalog-portfolios.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-service-catalog-products.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-service-catalog-provisioned-products.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/servicecatalog/
@@ -89,23 +90,19 @@ common:
   url: examples/amazon-service-catalog-product-view-summary-example.json
 - type: Example
   url: examples/amazon-service-catalog-provisioned-product-example.json
-- type: NaftikoCapability
-  url: capabilities/it-service-governance.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/amazon-service-catalog.yaml
 - type: SpectralRules
   url: rules/amazon-service-catalog-spectral-rules.yml
 - type: Integrations
   url: https://aws.amazon.com/partners/
 integrations:
-  - name: Partner Programs
-  - name: Resources
-  - name: Success Stories
-  - name: Work with an AWS Partner
-  - name: AWS Marketplace
-  - name: AWS Partner Central
-  - name: Partner Paths
-  - name: co-sell with AWS
+- name: Partner Programs
+- name: Resources
+- name: Success Stories
+- name: Work with an AWS Partner
+- name: AWS Marketplace
+- name: AWS Partner Central
+- name: Partner Paths
+- name: co-sell with AWS
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

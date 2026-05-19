@@ -1,0 +1,159 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Service Catalog API — Provisioned Products
+  description: 'Amazon Service Catalog API — Provisioned Products. 3 operations. Lead operation: Amazon Service Catalog Provision
+    Product. Self-contained Naftiko capability covering one Amazon Service Catalog business surface.'
+  tags:
+  - Amazon Service Catalog
+  - Provisioned Products
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_SERVICE_CATALOG_API_KEY: AMAZON_SERVICE_CATALOG_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-service-catalog-provisioned-products
+    baseUri: https://servicecatalog.{region}.amazonaws.com
+    description: Amazon Service Catalog API — Provisioned Products business capability. Self-contained, no shared references.
+    resources:
+    - name: provisioned-products
+      path: /provisioned-products
+      operations:
+      - name: provisionproduct
+        method: POST
+        description: Amazon Service Catalog Provision Product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: provisioned-products-ProvisionedProductId
+      path: /provisioned-products/{ProvisionedProductId}
+      operations:
+      - name: describeprovisionedproduct
+        method: GET
+        description: Amazon Service Catalog Describe Provisioned Product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ProvisionedProductId
+          in: path
+          type: string
+          description: The provisioned product identifier.
+          required: true
+      - name: terminateprovisionedproduct
+        method: DELETE
+        description: Amazon Service Catalog Terminate Provisioned Product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ProvisionedProductId
+          in: path
+          type: string
+          description: The provisioned product identifier.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_SERVICE_CATALOG_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-service-catalog-provisioned-products-rest
+    port: 8080
+    description: REST adapter for Amazon Service Catalog API — Provisioned Products. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/provisioned-products
+      name: provisioned-products
+      description: REST surface for provisioned-products.
+      operations:
+      - method: POST
+        name: provisionproduct
+        description: Amazon Service Catalog Provision Product
+        call: amazon-service-catalog-provisioned-products.provisionproduct
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provisioned-products/{provisionedproductid}
+      name: provisioned-products-provisionedproductid
+      description: REST surface for provisioned-products-ProvisionedProductId.
+      operations:
+      - method: GET
+        name: describeprovisionedproduct
+        description: Amazon Service Catalog Describe Provisioned Product
+        call: amazon-service-catalog-provisioned-products.describeprovisionedproduct
+        with:
+          ProvisionedProductId: rest.ProvisionedProductId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: terminateprovisionedproduct
+        description: Amazon Service Catalog Terminate Provisioned Product
+        call: amazon-service-catalog-provisioned-products.terminateprovisionedproduct
+        with:
+          ProvisionedProductId: rest.ProvisionedProductId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-service-catalog-provisioned-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Service Catalog API — Provisioned Products. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-service-catalog-provision-product
+      description: Amazon Service Catalog Provision Product
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-service-catalog-provisioned-products.provisionproduct
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-describe-provisioned
+      description: Amazon Service Catalog Describe Provisioned Product
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-service-catalog-provisioned-products.describeprovisionedproduct
+      with:
+        ProvisionedProductId: tools.ProvisionedProductId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-service-catalog-terminate-provisioned
+      description: Amazon Service Catalog Terminate Provisioned Product
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-service-catalog-provisioned-products.terminateprovisionedproduct
+      with:
+        ProvisionedProductId: tools.ProvisionedProductId
+      outputParameters:
+      - type: object
+        mapping: $.
