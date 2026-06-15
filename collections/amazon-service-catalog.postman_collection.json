@@ -1,0 +1,1177 @@
+{
+  "item": [
+    {
+      "id": "edb58d85-aa9f-413c-bb01-3e5baa88be5e",
+      "name": "Portfolios",
+      "description": {
+        "content": "Portfolio management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7e6bd7c-3282-4c14-a15f-463cda874796",
+          "name": "Amazon Service Catalog List Portfolios",
+          "request": {
+            "name": "Amazon Service Catalog List Portfolios",
+            "description": {
+              "content": "Lists all portfolios in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "portfolios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "PageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of items to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "PageToken",
+                  "value": "<string>",
+                  "description": "The page token for the next set of results."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "249c0939-d820-41fc-a32f-0f2f756cab06",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portfolios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "PageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PortfolioDetails\": [\n    {\n      \"Id\": \"port-a1b2c3d4\",\n      \"ARN\": \"arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4\",\n      \"DisplayName\": \"My IT Portfolio\",\n      \"Description\": \"Approved IT services\",\n      \"ProviderName\": \"IT Team\"\n    }\n  ],\n  \"NextPageToken\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "237bf3f4-7581-4325-bb62-6e13ff5653df",
+          "name": "Amazon Service Catalog Create Portfolio",
+          "request": {
+            "name": "Amazon Service Catalog Create Portfolio",
+            "description": {
+              "content": "Creates a portfolio.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "portfolios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DisplayName\": \"<string>\",\n  \"ProviderName\": \"<string>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24ac9849-6e8d-498c-9e9e-7ca9d31421f4",
+              "name": "Portfolio created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portfolios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DisplayName\": \"<string>\",\n  \"ProviderName\": \"<string>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"port-a1b2c3d4\",\n  \"DisplayName\": \"My IT Portfolio\",\n  \"ProviderName\": \"IT Team\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6f81248-0452-4dc7-af74-83b8b1268104",
+          "name": "Amazon Service Catalog Describe Portfolio",
+          "request": {
+            "name": "Amazon Service Catalog Describe Portfolio",
+            "description": {
+              "content": "Gets information about the specified portfolio.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "portfolios",
+                ":PortfolioId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "PortfolioId",
+                  "description": "(Required) The portfolio identifier."
+                },
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd95bcd4-a383-45e5-b3e8-f715c7399465",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portfolios",
+                    ":PortfolioId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "PortfolioId",
+                      "description": "(Required) The portfolio identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"port-a1b2c3d4\",\n  \"DisplayName\": \"My IT Portfolio\",\n  \"ProviderName\": \"IT Team\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c0b1be1-d94d-4357-85b5-01492cbb77f9",
+          "name": "Amazon Service Catalog Delete Portfolio",
+          "request": {
+            "name": "Amazon Service Catalog Delete Portfolio",
+            "description": {
+              "content": "Deletes the specified portfolio.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "portfolios",
+                ":PortfolioId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "PortfolioId",
+                  "description": "(Required) The portfolio identifier."
+                },
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab58d7e4-f25e-4e03-8cee-4a8615c147a3",
+              "name": "Portfolio deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portfolios",
+                    ":PortfolioId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "PortfolioId",
+                      "description": "(Required) The portfolio identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d77a1d25-4370-4d16-a303-fc44cac80740",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portfolios",
+                    ":PortfolioId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "PortfolioId",
+                      "description": "(Required) The portfolio identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "77a4b0df-b5dc-4f87-8eb8-121c7f879794",
+      "name": "Products",
+      "description": {
+        "content": "Product management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d09f779d-34d9-4801-a7f4-547c1ceeab50",
+          "name": "Amazon Service Catalog Search Products",
+          "request": {
+            "name": "Amazon Service Catalog Search Products",
+            "description": {
+              "content": "Gets information about the products to which the caller has access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "PageSize",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "PageToken",
+                  "value": "<string>",
+                  "description": "Pagination token."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cf12422-97ff-40c2-98de-71975b19481b",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "PageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ProductViewSummaries\": [\n    {\n      \"Id\": \"prodview-a1b2c3\",\n      \"ProductId\": \"prod-a1b2c3\",\n      \"Name\": \"EC2 Instance\",\n      \"Type\": \"CLOUD_FORMATION_TEMPLATE\"\n    }\n  ],\n  \"NextPageToken\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99ffd473-351b-4f21-9f7f-055d53c215c7",
+          "name": "Amazon Service Catalog Create Product",
+          "request": {
+            "name": "Amazon Service Catalog Create Product",
+            "description": {
+              "content": "Creates a product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Owner\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProvisioningArtifactParameters\": \"<object>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cabb4f11-daa4-424b-88ef-7311b5867627",
+              "name": "Product created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Owner\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProvisioningArtifactParameters\": \"<object>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ProductViewDetail\": {\n    \"ProductViewSummary\": {\n      \"Id\": \"prodview-a1b2c3\",\n      \"ProductId\": \"prod-a1b2c3\",\n      \"Name\": \"EC2 Instance\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "df4c2279-5a9b-44cb-8853-8e1c7dab6d34",
+      "name": "Provisioned Products",
+      "description": {
+        "content": "Provisioned product management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e9f8d95-6bf2-40f2-89f7-699fa721a068",
+          "name": "Amazon Service Catalog Provision Product",
+          "request": {
+            "name": "Amazon Service Catalog Provision Product",
+            "description": {
+              "content": "Provisions the specified product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "provisioned-products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": \"<string>\",\n  \"ProvisioningArtifactId\": \"<string>\",\n  \"ProvisionedProductName\": \"<string>\",\n  \"ProvisionToken\": \"<string>\",\n  \"ProvisioningParameters\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "664e56bb-26e1-46b3-a4f4-3ccd9a48cc17",
+              "name": "Product provisioning started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provisioned-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ProductId\": \"<string>\",\n  \"ProvisioningArtifactId\": \"<string>\",\n  \"ProvisionedProductName\": \"<string>\",\n  \"ProvisionToken\": \"<string>\",\n  \"ProvisioningParameters\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"RecordDetail\": {\n    \"RecordId\": \"rec-a1b2c3d4\",\n    \"ProvisionedProductName\": \"my-ec2-instance\",\n    \"Status\": \"IN_PROGRESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a2c7358-12b4-40bd-b150-37a20139c6a8",
+          "name": "Amazon Service Catalog Describe Provisioned Product",
+          "request": {
+            "name": "Amazon Service Catalog Describe Provisioned Product",
+            "description": {
+              "content": "Gets information about the specified provisioned product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "provisioned-products",
+                ":ProvisionedProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ProvisionedProductId",
+                  "description": "(Required) The provisioned product identifier."
+                },
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78c33832-49c6-4b75-9068-9af2a95cf7f8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provisioned-products",
+                    ":ProvisionedProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ProvisionedProductId",
+                      "description": "(Required) The provisioned product identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ProvisionedProductDetail\": {\n    \"Id\": \"pp-a1b2c3d4\",\n    \"Name\": \"my-ec2-instance\",\n    \"Status\": \"AVAILABLE\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72c2159a-b53b-40db-937d-191f5dabc7cf",
+          "name": "Amazon Service Catalog Terminate Provisioned Product",
+          "request": {
+            "name": "Amazon Service Catalog Terminate Provisioned Product",
+            "description": {
+              "content": "Terminates the specified provisioned product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "provisioned-products",
+                ":ProvisionedProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ProvisionedProductId",
+                  "description": "(Required) The provisioned product identifier."
+                },
+                {
+                  "description": "The AWS region.",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abf8b483-1228-45dc-9486-bb8ec887645d",
+              "name": "Termination initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provisioned-products",
+                    ":ProvisionedProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ProvisionedProductId",
+                      "description": "(Required) The provisioned product identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b73175b8-b65b-4e71-ac87-3d79fd63f9ce",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "provisioned-products",
+                    ":ProvisionedProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ProvisionedProductId",
+                      "description": "(Required) The provisioned product identifier."
+                    },
+                    {
+                      "description": "The AWS region.",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1cab240b-131c-400c-a664-c1613d718191",
+      "name": "Service Actions",
+      "description": {
+        "content": "Service action management",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The AWS region.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://servicecatalog.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9ef3903f-042a-4c6d-875d-6211253ab1ee",
+    "name": "Amazon Service Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

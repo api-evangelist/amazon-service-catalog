@@ -1,0 +1,219 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Service Catalog API",
+    "version": "Wed Dec 09 2015 19:00:00 GMT-0500 (Eastern Standard Time)"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Portfolios",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog List Portfolios",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios",
+            "params": [
+              {
+                "name": "PageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "The page token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Lists all portfolios in the account."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Create Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a portfolio."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Describe Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios/:PortfolioId",
+            "params": [
+              {
+                "name": "PortfolioId",
+                "value": "",
+                "type": "path",
+                "description": "The portfolio identifier."
+              }
+            ]
+          },
+          "docs": "Gets information about the specified portfolio."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Delete Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios/:PortfolioId",
+            "params": [
+              {
+                "name": "PortfolioId",
+                "value": "",
+                "type": "path",
+                "description": "The portfolio identifier."
+              }
+            ]
+          },
+          "docs": "Deletes the specified portfolio."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog Search Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/products",
+            "params": [
+              {
+                "name": "Filters",
+                "value": "",
+                "type": "query",
+                "description": "Filter criteria for the search."
+              },
+              {
+                "name": "PageSize",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              }
+            ]
+          },
+          "docs": "Gets information about the products to which the caller has access."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Create Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a product."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Provisioned Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog Provision Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provisions the specified product."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Describe Provisioned Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products/:ProvisionedProductId",
+            "params": [
+              {
+                "name": "ProvisionedProductId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioned product identifier."
+              }
+            ]
+          },
+          "docs": "Gets information about the specified provisioned product."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Terminate Provisioned Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products/:ProvisionedProductId",
+            "params": [
+              {
+                "name": "ProvisionedProductId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioned product identifier."
+              }
+            ]
+          },
+          "docs": "Terminates the specified provisioned product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
