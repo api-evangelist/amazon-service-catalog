@@ -5,7 +5,7 @@ description: >-
   AWS. IT administrators can create and manage a portfolio of products (services, applications, and others) and control
   which users have access to which products.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AWS
   - Cloud Governance
