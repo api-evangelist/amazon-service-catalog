@@ -58,7 +58,7 @@ common:
     url: https://github.com/aws
   - type: Console
     url: https://console.aws.amazon.com/servicecatalog/
-  - type: SignUp
+  - type: Signup
     url: https://portal.aws.amazon.com/billing/signup
   - type: Login
     url: https://signin.aws.amazon.com/
@@ -80,11 +80,11 @@ common:
     url: json-structure/amazon-service-catalog-product-view-summary-structure.json
   - type: JSONStructure
     url: json-structure/amazon-service-catalog-provisioned-product-structure.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-service-catalog-portfolio-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-service-catalog-product-view-summary-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-service-catalog-provisioned-product-example.json
   - type: SpectralRules
     url: rules/amazon-service-catalog-spectral-rules.yml
