@@ -40,6 +40,14 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/servicecatalog/faqs/
 common:
+  - type: TrustCenter
+    url: security/amazon-service-catalog-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-service-catalog-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-service-catalog-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-service-catalog-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/servicecatalog/
   - type: Website
