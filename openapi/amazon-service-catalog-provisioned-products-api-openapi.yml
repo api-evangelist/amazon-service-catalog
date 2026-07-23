@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Amazon Service Catalog Portfolios Provisioned Products API
+  description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.
+  version: 2015-12-10
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/servicecatalog/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+servers:
+- url: https://servicecatalog.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region.
+security:
+- AWSSignatureV4: []
+tags:
+- name: Provisioned Products
+  description: Provisioned product management
+paths:
+  /provisioned-products:
+    post:
+      operationId: ProvisionProduct
+      summary: Amazon Service Catalog Provision Product
+      description: Provisions the specified product.
+      tags:
+      - Provisioned Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionProductRequest'
+      responses:
+        '200':
+          description: Product provisioning started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionedProduct'
+              examples:
+                ProvisionProduct200Example:
+                  summary: Default ProvisionProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    RecordDetail:
+                      RecordId: rec-a1b2c3d4
+                      ProvisionedProductName: my-ec2-instance
+                      Status: IN_PROGRESS
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /provisioned-products/{ProvisionedProductId}:
+    get:
+      operationId: DescribeProvisionedProduct
+      summary: Amazon Service Catalog Describe Provisioned Product
+      description: Gets information about the specified provisioned product.
+      tags:
+      - Provisioned Products
+      parameters:
+      - name: ProvisionedProductId
+        in: path
+        required: true
+        description: The provisioned product identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionedProduct'
+              examples:
+                DescribeProvisionedProduct200Example:
+                  summary: Default DescribeProvisionedProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    ProvisionedProductDetail:
+                      Id: pp-a1b2c3d4
+                      Name: my-ec2-instance
+                      Status: AVAILABLE
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: TerminateProvisionedProduct
+      summary: Amazon Service Catalog Terminate Provisioned Product
+      description: Terminates the specified provisioned product.
+      tags:
+      - Provisioned Products
+      parameters:
+      - name: ProvisionedProductId
+        in: path
+        required: true
+        description: The provisioned product identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Termination initiated.
+        '400':
+          description: Bad request.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ProvisionedProduct:
+      type: object
+      description: Information about a provisioned product.
+      properties:
+        RecordDetail:
+          type: object
+          properties:
+            RecordId:
+              type: string
+              description: The identifier of the record.
+              example: rec-a1b2c3d4
+            ProvisionedProductName:
+              type: string
+              description: The user-friendly name of the provisioned product.
+              example: my-ec2-instance
+            Status:
+              type: string
+              description: The status of the provisioned product.
+              enum:
+              - CREATED
+              - IN_PROGRESS
+              - IN_PROGRESS_IN_ERROR
+              - SUCCEEDED
+              - FAILED
+            ProvisionedProductId:
+              type: string
+              description: The identifier of the provisioned product.
+    ProvisionProductRequest:
+      type: object
+      required:
+      - ProductId
+      - ProvisioningArtifactId
+      - ProvisionedProductName
+      - ProvisionToken
+      properties:
+        ProductId:
+          type: string
+          description: The product identifier.
+        ProvisioningArtifactId:
+          type: string
+          description: The identifier of the provisioning artifact.
+        ProvisionedProductName:
+          type: string
+          description: The user-friendly name of the provisioned product.
+        ProvisioningParameters:
+          type: array
+          items:
+            type: object
+            properties:
+              Key:
+                type: string
+              Value:
+                type: string
+        ProvisionToken:
+          type: string
+          description: An idempotency token that uniquely identifies this provisioning request.
+  securitySchemes:
+    AWSSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

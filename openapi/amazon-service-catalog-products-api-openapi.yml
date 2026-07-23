@@ -1,0 +1,190 @@
+openapi: 3.1.0
+info:
+  title: Amazon Service Catalog Portfolios Products API
+  description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.
+  version: 2015-12-10
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/servicecatalog/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+servers:
+- url: https://servicecatalog.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region.
+security:
+- AWSSignatureV4: []
+tags:
+- name: Products
+  description: Product management operations
+paths:
+  /products:
+    get:
+      operationId: SearchProducts
+      summary: Amazon Service Catalog Search Products
+      description: Gets information about the products to which the caller has access.
+      tags:
+      - Products
+      parameters:
+      - name: Filters
+        in: query
+        description: Filter criteria for the search.
+        schema:
+          type: object
+      - name: PageSize
+        in: query
+        description: Maximum number of items to return.
+        schema:
+          type: integer
+      - name: PageToken
+        in: query
+        description: Pagination token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ProductViewSummaries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductViewSummary'
+                  NextPageToken:
+                    type: string
+              examples:
+                SearchProducts200Example:
+                  summary: Default SearchProducts 200 response
+                  x-microcks-default: true
+                  value:
+                    ProductViewSummaries:
+                    - Id: prodview-a1b2c3
+                      ProductId: prod-a1b2c3
+                      Name: EC2 Instance
+                      Type: CLOUD_FORMATION_TEMPLATE
+                    NextPageToken: null
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: CreateProduct
+      summary: Amazon Service Catalog Create Product
+      description: Creates a product.
+      tags:
+      - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductRequest'
+      responses:
+        '200':
+          description: Product created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+              examples:
+                CreateProduct200Example:
+                  summary: Default CreateProduct 200 response
+                  x-microcks-default: true
+                  value:
+                    ProductViewDetail:
+                      ProductViewSummary:
+                        Id: prodview-a1b2c3
+                        ProductId: prod-a1b2c3
+                        Name: EC2 Instance
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreateProductRequest:
+      type: object
+      required:
+      - Name
+      - Owner
+      - ProductType
+      - ProvisioningArtifactParameters
+      - IdempotencyToken
+      properties:
+        Name:
+          type: string
+          description: The name of the product.
+        Owner:
+          type: string
+          description: The owner of the product.
+        Description:
+          type: string
+          description: The description of the product.
+        ProductType:
+          type: string
+          description: The type of product.
+          enum:
+          - CLOUD_FORMATION_TEMPLATE
+          - MARKETPLACE
+        ProvisioningArtifactParameters:
+          type: object
+          description: The configuration of the provisioning artifact.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier for idempotency.
+    Product:
+      type: object
+      description: Information about a Service Catalog product.
+      properties:
+        ProductViewDetail:
+          type: object
+          properties:
+            ProductViewSummary:
+              $ref: '#/components/schemas/ProductViewSummary'
+            Status:
+              type: string
+            ProductARN:
+              type: string
+    ProductViewSummary:
+      type: object
+      description: Summary information about a product view.
+      properties:
+        Id:
+          type: string
+          description: The product view identifier.
+          example: prodview-a1b2c3
+        ProductId:
+          type: string
+          description: The product identifier.
+          example: prod-a1b2c3
+        Name:
+          type: string
+          description: The name of the product.
+          example: EC2 Instance
+        Owner:
+          type: string
+          description: The owner of the product.
+          example: IT Team
+        ShortDescription:
+          type: string
+          description: Short description of the product.
+        Type:
+          type: string
+          description: The product type.
+          enum:
+          - CLOUD_FORMATION_TEMPLATE
+          - MARKETPLACE
+          - TERRAFORM_OPEN_SOURCE
+          - TERRAFORM_CLOUD
+          - EXTERNAL
+  securitySchemes:
+    AWSSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

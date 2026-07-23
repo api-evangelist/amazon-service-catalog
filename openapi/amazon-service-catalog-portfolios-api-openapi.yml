@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  title: Amazon Service Catalog Portfolios API
+  description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.
+  version: 2015-12-10
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/servicecatalog/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  x-generated-from: documentation
+servers:
+- url: https://servicecatalog.{region}.amazonaws.com
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region.
+security:
+- AWSSignatureV4: []
+tags:
+- name: Portfolios
+  description: Portfolio management operations
+paths:
+  /portfolios:
+    get:
+      operationId: ListPortfolios
+      summary: Amazon Service Catalog List Portfolios
+      description: Lists all portfolios in the account.
+      tags:
+      - Portfolios
+      parameters:
+      - name: PageSize
+        in: query
+        description: The maximum number of items to return.
+        schema:
+          type: integer
+      - name: PageToken
+        in: query
+        description: The page token for the next set of results.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  PortfolioDetails:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Portfolio'
+                  NextPageToken:
+                    type: string
+              examples:
+                ListPortfolios200Example:
+                  summary: Default ListPortfolios 200 response
+                  x-microcks-default: true
+                  value:
+                    PortfolioDetails:
+                    - Id: port-a1b2c3d4
+                      ARN: arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4
+                      DisplayName: My IT Portfolio
+                      Description: Approved IT services
+                      ProviderName: IT Team
+                    NextPageToken: null
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: CreatePortfolio
+      summary: Amazon Service Catalog Create Portfolio
+      description: Creates a portfolio.
+      tags:
+      - Portfolios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePortfolioRequest'
+      responses:
+        '200':
+          description: Portfolio created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+              examples:
+                CreatePortfolio200Example:
+                  summary: Default CreatePortfolio 200 response
+                  x-microcks-default: true
+                  value:
+                    Id: port-a1b2c3d4
+                    DisplayName: My IT Portfolio
+                    ProviderName: IT Team
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /portfolios/{PortfolioId}:
+    get:
+      operationId: DescribePortfolio
+      summary: Amazon Service Catalog Describe Portfolio
+      description: Gets information about the specified portfolio.
+      tags:
+      - Portfolios
+      parameters:
+      - name: PortfolioId
+        in: path
+        required: true
+        description: The portfolio identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+              examples:
+                DescribePortfolio200Example:
+                  summary: Default DescribePortfolio 200 response
+                  x-microcks-default: true
+                  value:
+                    Id: port-a1b2c3d4
+                    DisplayName: My IT Portfolio
+                    ProviderName: IT Team
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: DeletePortfolio
+      summary: Amazon Service Catalog Delete Portfolio
+      description: Deletes the specified portfolio.
+      tags:
+      - Portfolios
+      parameters:
+      - name: PortfolioId
+        in: path
+        required: true
+        description: The portfolio identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Portfolio deleted.
+        '400':
+          description: Bad request.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreatePortfolioRequest:
+      type: object
+      required:
+      - DisplayName
+      - ProviderName
+      - IdempotencyToken
+      properties:
+        DisplayName:
+          type: string
+          description: The name to use for display purposes.
+        Description:
+          type: string
+          description: The description of the portfolio.
+        ProviderName:
+          type: string
+          description: The name of the portfolio provider.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier that you provide to ensure idempotency.
+    Portfolio:
+      type: object
+      description: Information about a Service Catalog portfolio.
+      properties:
+        Id:
+          type: string
+          description: The portfolio identifier.
+          example: port-a1b2c3d4
+        ARN:
+          type: string
+          description: The ARN assigned to the portfolio.
+          example: arn:aws:catalog:us-east-1:123456789012:portfolio/port-a1b2c3d4
+        DisplayName:
+          type: string
+          description: The name to use for display purposes.
+          example: My IT Portfolio
+        Description:
+          type: string
+          description: The description of the portfolio.
+          example: Approved IT services for the engineering team
+        CreatedTime:
+          type: string
+          format: date-time
+          description: The UTC time stamp of the creation time.
+        ProviderName:
+          type: string
+          description: The name of the portfolio provider.
+          example: IT Team
+  securitySchemes:
+    AWSSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication
