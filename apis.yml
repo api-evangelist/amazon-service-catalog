@@ -5,7 +5,20 @@ description: >-
   AWS. IT administrators can create and manage a portfolio of products (services, applications, and others) and control
   which users have access to which products.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-service-catalog.png
 tags:
   - AWS
   - Cloud Governance
@@ -17,29 +30,63 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-service-catalog:aws-service-catalog-api
-    name: AWS Service Catalog API
-    description: >-
-      The AWS Service Catalog API provides programmatic access to create and manage portfolios, products, provisioning
-      artifacts, constraints, and service actions for IT service governance and self-service provisioning.
-    humanURL: https://aws.amazon.com/servicecatalog/
-    baseURL: https://servicecatalog.amazonaws.com
-    tags:
-      - Cloud Governance
-      - IT Governance
-      - Service Catalog
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
-      - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/servicecatalog/2015-12-10/openapi.yaml
-      - type: GettingStarted
-        url: https://aws.amazon.com/servicecatalog/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/servicecatalog/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-portfolios-api
+  name: Amazon Service Catalog Portfolios API
+  description: Portfolio management operations
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Portfolios
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-portfolios-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-products-api
+  name: Amazon Service Catalog Products API
+  description: Product management operations
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-provisioned-products-api
+  name: Amazon Service Catalog Provisioned Products API
+  description: Provisioned product management
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Provisioned Products
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-provisioned-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-service-catalog/overview
   - type: AgenticAccess
     url: agentic-access/amazon-service-catalog-agentic-access.yml
   - type: TrustCenter
