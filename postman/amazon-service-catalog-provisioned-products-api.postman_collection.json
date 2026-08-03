@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "5778bef2-36a4-4551-a4db-c10bdc3ad33d",
+    "name": "Amazon Service Catalog Portfolios Provisioned Products API",
+    "description": "AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:52:37.000Z",
+    "updatedAt": "2026-07-28T00:52:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5778bef2-36a4-4551-a4db-c10bdc3ad33d"
+  },
+  "item": [
+    {
+      "name": "provisioned-products",
+      "item": [
+        {
+          "name": "{ProvisionedProductId}",
+          "item": [
+            {
+              "name": "Amazon Service Catalog Describe Provisioned Product",
+              "id": "71b07382-d47b-4b14-9d60-0961f3758a82",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/provisioned-products/:ProvisionedProductId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "provisioned-products",
+                    ":ProvisionedProductId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9cc6b604-05d9-4a69-9611-372bda4d7078",
+                      "key": "ProvisionedProductId",
+                      "value": "<string>",
+                      "description": "(Required) The provisioned product identifier."
+                    }
+                  ]
+                },
+                "description": "Gets information about the specified provisioned product."
+              },
+              "response": [
+                {
+                  "id": "9bc9f809-a257-4e6b-ad3c-b692f26b4477",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/provisioned-products/:ProvisionedProductId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "provisioned-products",
+                        ":ProvisionedProductId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ProvisionedProductId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"RecordDetail\": {\n    \"RecordId\": \"<string>\",\n    \"ProvisionedProductName\": \"<string>\",\n    \"Status\": \"IN_PROGRESS_IN_ERROR\",\n    \"ProvisionedProductId\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T00:52:38.000Z",
+                  "updatedAt": "2026-07-28T00:52:38.000Z",
+                  "uid": "35240-9bc9f809-a257-4e6b-ad3c-b692f26b4477"
+                }
+              ],
+              "createdAt": "2026-07-28T00:52:38.000Z",
+              "updatedAt": "2026-07-28T00:52:38.000Z",
+              "uid": "35240-71b07382-d47b-4b14-9d60-0961f3758a82"
+            },
+            {
+              "name": "Amazon Service Catalog Terminate Provisioned Product",
+              "id": "44af1a2d-2625-45df-ba83-e623ee62d8e4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/provisioned-products/:ProvisionedProductId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "provisioned-products",
+                    ":ProvisionedProductId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1582939c-e72b-487a-88d7-cc4aee446a02",
+                      "key": "ProvisionedProductId",
+                      "value": "<string>",
+                      "description": "(Required) The provisioned product identifier."
+                    }
+                  ]
+                },
+                "description": "Terminates the specified provisioned product."
+              },
+              "response": [
+                {
+                  "id": "534a119b-5b3a-4c0d-9d49-68255f46d1a1",
+                  "name": "Termination initiated.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/provisioned-products/:ProvisionedProductId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "provisioned-products",
+                        ":ProvisionedProductId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ProvisionedProductId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:52:38.000Z",
+                  "updatedAt": "2026-07-28T00:52:38.000Z",
+                  "uid": "35240-534a119b-5b3a-4c0d-9d49-68255f46d1a1"
+                },
+                {
+                  "id": "306eba6d-3c15-4af3-b495-fa7b5eb9a10a",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/provisioned-products/:ProvisionedProductId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "provisioned-products",
+                        ":ProvisionedProductId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ProvisionedProductId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:52:38.000Z",
+                  "updatedAt": "2026-07-28T00:52:38.000Z",
+                  "uid": "35240-306eba6d-3c15-4af3-b495-fa7b5eb9a10a"
+                }
+              ],
+              "createdAt": "2026-07-28T00:52:38.000Z",
+              "updatedAt": "2026-07-28T00:52:38.000Z",
+              "uid": "35240-44af1a2d-2625-45df-ba83-e623ee62d8e4"
+            }
+          ],
+          "id": "6dbfd47a-92be-4332-8a3b-0fbe1e303a39",
+          "createdAt": "2026-07-28T00:52:38.000Z",
+          "updatedAt": "2026-07-28T00:52:38.000Z",
+          "uid": "35240-6dbfd47a-92be-4332-8a3b-0fbe1e303a39"
+        },
+        {
+          "name": "Amazon Service Catalog Provision Product",
+          "id": "8b8a723b-854b-4abf-8ecb-eb2b5f1c832b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": \"<string>\",\n  \"ProvisioningArtifactId\": \"<string>\",\n  \"ProvisionedProductName\": \"<string>\",\n  \"ProvisionToken\": \"<string>\",\n  \"ProvisioningParameters\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/provisioned-products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "provisioned-products"
+              ]
+            },
+            "description": "Provisions the specified product."
+          },
+          "response": [
+            {
+              "id": "72939fd7-6d28-4222-a810-77c7a58c45f0",
+              "name": "Product provisioning started.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ProductId\": \"<string>\",\n  \"ProvisioningArtifactId\": \"<string>\",\n  \"ProvisionedProductName\": \"<string>\",\n  \"ProvisionToken\": \"<string>\",\n  \"ProvisioningParameters\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/provisioned-products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "provisioned-products"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"RecordDetail\": {\n    \"RecordId\": \"<string>\",\n    \"ProvisionedProductName\": \"<string>\",\n    \"Status\": \"IN_PROGRESS_IN_ERROR\",\n    \"ProvisionedProductId\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T00:52:38.000Z",
+              "updatedAt": "2026-07-28T00:52:38.000Z",
+              "uid": "35240-72939fd7-6d28-4222-a810-77c7a58c45f0"
+            }
+          ],
+          "createdAt": "2026-07-28T00:52:38.000Z",
+          "updatedAt": "2026-07-28T00:52:38.000Z",
+          "uid": "35240-8b8a723b-854b-4abf-8ecb-eb2b5f1c832b"
+        }
+      ],
+      "id": "801c965e-fbe0-443c-8066-1d2082ca99c1",
+      "createdAt": "2026-07-28T00:52:38.000Z",
+      "updatedAt": "2026-07-28T00:52:38.000Z",
+      "uid": "35240-801c965e-fbe0-443c-8066-1d2082ca99c1"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://servicecatalog.{{region}}.amazonaws.com"
+    }
+  ]
+}

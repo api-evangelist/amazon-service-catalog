@@ -1,0 +1,18 @@
+{
+  "provider": "amazon-service-catalog",
+  "sources": [
+    "amazon-service-catalog-portfolios-api-openapi.yml",
+    "amazon-service-catalog-products-api-openapi.yml",
+    "amazon-service-catalog-provisioned-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-service-catalog-portfolios-api-openapi.yml",
+    "amazon-service-catalog-products-api-openapi.yml",
+    "amazon-service-catalog-provisioned-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

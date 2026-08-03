@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "32639139-3af1-434b-a6e2-780cacb2a66d",
+    "name": "Amazon Service Catalog Portfolios Products API",
+    "description": "AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:52:37.000Z",
+    "updatedAt": "2026-07-28T00:52:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-32639139-3af1-434b-a6e2-780cacb2a66d"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "Amazon Service Catalog Search Products",
+          "id": "62c734be-03e8-4b23-8665-1f7173fe97dd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products?PageSize=<integer>&PageToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of items to return.",
+                  "key": "PageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination token.",
+                  "key": "PageToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Gets information about the products to which the caller has access."
+          },
+          "response": [
+            {
+              "id": "b1834287-4228-4eb5-b652-7c4b3fcc0495",
+              "name": "Successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/products?PageSize=<integer>&PageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return.",
+                      "key": "PageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination token.",
+                      "key": "PageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ProductViewSummaries\": [\n    {\n      \"Id\": \"<string>\",\n      \"ProductId\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Owner\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"Type\": \"CLOUD_FORMATION_TEMPLATE\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"ProductId\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Owner\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"Type\": \"CLOUD_FORMATION_TEMPLATE\"\n    }\n  ],\n  \"NextPageToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:52:37.000Z",
+              "updatedAt": "2026-07-28T00:52:37.000Z",
+              "uid": "35240-b1834287-4228-4eb5-b652-7c4b3fcc0495"
+            }
+          ],
+          "createdAt": "2026-07-28T00:52:37.000Z",
+          "updatedAt": "2026-07-28T00:52:37.000Z",
+          "uid": "35240-62c734be-03e8-4b23-8665-1f7173fe97dd"
+        },
+        {
+          "name": "Amazon Service Catalog Create Product",
+          "id": "c76e08c1-5df1-4ed5-a970-3e1afb7a7b63",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Owner\": \"<string>\",\n  \"ProductType\": \"MARKETPLACE\",\n  \"ProvisioningArtifactParameters\": {},\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Creates a product."
+          },
+          "response": [
+            {
+              "id": "cbbaea1e-a3c3-4153-b518-631705a5a290",
+              "name": "Product created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Owner\": \"<string>\",\n  \"ProductType\": \"MARKETPLACE\",\n  \"ProvisioningArtifactParameters\": {},\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ProductViewDetail\": {\n    \"ProductViewSummary\": {\n      \"Id\": \"<string>\",\n      \"ProductId\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Owner\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"Type\": \"TERRAFORM_CLOUD\"\n    },\n    \"Status\": \"<string>\",\n    \"ProductARN\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T00:52:37.000Z",
+              "updatedAt": "2026-07-28T00:52:37.000Z",
+              "uid": "35240-cbbaea1e-a3c3-4153-b518-631705a5a290"
+            }
+          ],
+          "createdAt": "2026-07-28T00:52:37.000Z",
+          "updatedAt": "2026-07-28T00:52:37.000Z",
+          "uid": "35240-c76e08c1-5df1-4ed5-a970-3e1afb7a7b63"
+        }
+      ],
+      "id": "a4958338-3f31-4741-9eb7-41ced71a75df",
+      "createdAt": "2026-07-28T00:52:37.000Z",
+      "updatedAt": "2026-07-28T00:52:37.000Z",
+      "uid": "35240-a4958338-3f31-4741-9eb7-41ced71a75df"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://servicecatalog.{{region}}.amazonaws.com"
+    }
+  ]
+}

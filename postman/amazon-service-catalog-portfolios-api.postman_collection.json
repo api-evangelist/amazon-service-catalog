@@ -1,0 +1,461 @@
+{
+  "info": {
+    "_postman_id": "0e7a5f4f-2191-4d63-afbb-3d8e0458f7fd",
+    "name": "Amazon Service Catalog Portfolios API",
+    "description": "AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:52:36.000Z",
+    "updatedAt": "2026-07-28T00:52:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0e7a5f4f-2191-4d63-afbb-3d8e0458f7fd"
+  },
+  "item": [
+    {
+      "name": "portfolios",
+      "item": [
+        {
+          "name": "{PortfolioId}",
+          "item": [
+            {
+              "name": "Amazon Service Catalog Describe Portfolio",
+              "id": "eb6bbc28-492d-4d63-b341-c88de8f02621",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/portfolios/:PortfolioId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "portfolios",
+                    ":PortfolioId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "62b54967-5cfc-4cf6-a5ff-33ac7f920136",
+                      "key": "PortfolioId",
+                      "value": "<string>",
+                      "description": "(Required) The portfolio identifier."
+                    }
+                  ]
+                },
+                "description": "Gets information about the specified portfolio."
+              },
+              "response": [
+                {
+                  "id": "579b121c-80ed-41c5-aa2f-fdd0c6b9dc32",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/portfolios/:PortfolioId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "portfolios",
+                        ":PortfolioId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "PortfolioId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<string>\",\n  \"ARN\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CreatedTime\": \"<dateTime>\",\n  \"ProviderName\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:52:36.000Z",
+                  "updatedAt": "2026-07-28T00:52:36.000Z",
+                  "uid": "35240-579b121c-80ed-41c5-aa2f-fdd0c6b9dc32"
+                }
+              ],
+              "createdAt": "2026-07-28T00:52:36.000Z",
+              "updatedAt": "2026-07-28T00:52:36.000Z",
+              "uid": "35240-eb6bbc28-492d-4d63-b341-c88de8f02621"
+            },
+            {
+              "name": "Amazon Service Catalog Delete Portfolio",
+              "id": "cdd017e5-87ee-4d14-88e3-ac4ab25704f4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/portfolios/:PortfolioId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "portfolios",
+                    ":PortfolioId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "226e64cd-26ef-42fc-8e9b-d85de46d3fce",
+                      "key": "PortfolioId",
+                      "value": "<string>",
+                      "description": "(Required) The portfolio identifier."
+                    }
+                  ]
+                },
+                "description": "Deletes the specified portfolio."
+              },
+              "response": [
+                {
+                  "id": "5abf2c0f-20f3-4002-ae62-63587ed3fa7e",
+                  "name": "Portfolio deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/portfolios/:PortfolioId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "portfolios",
+                        ":PortfolioId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "PortfolioId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:52:36.000Z",
+                  "updatedAt": "2026-07-28T00:52:36.000Z",
+                  "uid": "35240-5abf2c0f-20f3-4002-ae62-63587ed3fa7e"
+                },
+                {
+                  "id": "fe952658-1fd7-4ef0-b3eb-a9737d772ed0",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/portfolios/:PortfolioId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "portfolios",
+                        ":PortfolioId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "PortfolioId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:52:36.000Z",
+                  "updatedAt": "2026-07-28T00:52:36.000Z",
+                  "uid": "35240-fe952658-1fd7-4ef0-b3eb-a9737d772ed0"
+                }
+              ],
+              "createdAt": "2026-07-28T00:52:36.000Z",
+              "updatedAt": "2026-07-28T00:52:36.000Z",
+              "uid": "35240-cdd017e5-87ee-4d14-88e3-ac4ab25704f4"
+            }
+          ],
+          "id": "c86391e3-47bf-4674-bd97-782476ff2538",
+          "createdAt": "2026-07-28T00:52:36.000Z",
+          "updatedAt": "2026-07-28T00:52:36.000Z",
+          "uid": "35240-c86391e3-47bf-4674-bd97-782476ff2538"
+        },
+        {
+          "name": "Amazon Service Catalog List Portfolios",
+          "id": "c0468f4f-38c7-4fb0-b351-9c13ed7a8b2c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/portfolios?PageSize=<integer>&PageToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "portfolios"
+              ],
+              "query": [
+                {
+                  "description": "The maximum number of items to return.",
+                  "key": "PageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The page token for the next set of results.",
+                  "key": "PageToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all portfolios in the account."
+          },
+          "response": [
+            {
+              "id": "a9c96d13-22f1-40cd-a10f-0e3c3826b3d5",
+              "name": "Successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/portfolios?PageSize=<integer>&PageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "portfolios"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of items to return.",
+                      "key": "PageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The page token for the next set of results.",
+                      "key": "PageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"PortfolioDetails\": [\n    {\n      \"Id\": \"<string>\",\n      \"ARN\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"ProviderName\": \"<string>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"ARN\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"ProviderName\": \"<string>\"\n    }\n  ],\n  \"NextPageToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:52:36.000Z",
+              "updatedAt": "2026-07-28T00:52:36.000Z",
+              "uid": "35240-a9c96d13-22f1-40cd-a10f-0e3c3826b3d5"
+            }
+          ],
+          "createdAt": "2026-07-28T00:52:36.000Z",
+          "updatedAt": "2026-07-28T00:52:36.000Z",
+          "uid": "35240-c0468f4f-38c7-4fb0-b351-9c13ed7a8b2c"
+        },
+        {
+          "name": "Amazon Service Catalog Create Portfolio",
+          "id": "680b30b2-fc1d-4c61-8af5-f3c2c0874b76",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DisplayName\": \"<string>\",\n  \"ProviderName\": \"<string>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/portfolios",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "portfolios"
+              ]
+            },
+            "description": "Creates a portfolio."
+          },
+          "response": [
+            {
+              "id": "0a1814f8-9c46-4c76-9a23-6664313136ae",
+              "name": "Portfolio created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DisplayName\": \"<string>\",\n  \"ProviderName\": \"<string>\",\n  \"IdempotencyToken\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/portfolios",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "portfolios"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<string>\",\n  \"ARN\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CreatedTime\": \"<dateTime>\",\n  \"ProviderName\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:52:36.000Z",
+              "updatedAt": "2026-07-28T00:52:36.000Z",
+              "uid": "35240-0a1814f8-9c46-4c76-9a23-6664313136ae"
+            }
+          ],
+          "createdAt": "2026-07-28T00:52:36.000Z",
+          "updatedAt": "2026-07-28T00:52:36.000Z",
+          "uid": "35240-680b30b2-fc1d-4c61-8af5-f3c2c0874b76"
+        }
+      ],
+      "id": "e7bc7286-ba20-4bd5-b159-48c86713de9c",
+      "createdAt": "2026-07-28T00:52:36.000Z",
+      "updatedAt": "2026-07-28T00:52:36.000Z",
+      "uid": "35240-e7bc7286-ba20-4bd5-b159-48c86713de9c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://servicecatalog.{{region}}.amazonaws.com"
+    }
+  ]
+}
