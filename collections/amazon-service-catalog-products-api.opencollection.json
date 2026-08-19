@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Service Catalog Portfolios Products API",
+    "version": "2015-12-10"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog Search Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/products",
+            "params": [
+              {
+                "name": "Filters",
+                "value": "",
+                "type": "query",
+                "description": "Filter criteria for the search."
+              },
+              {
+                "name": "PageSize",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              }
+            ]
+          },
+          "docs": "Gets information about the products to which the caller has access."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Create Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

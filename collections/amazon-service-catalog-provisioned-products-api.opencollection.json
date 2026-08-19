@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Service Catalog Portfolios Provisioned Products API",
+    "version": "2015-12-10"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Provisioned Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog Provision Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provisions the specified product."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Describe Provisioned Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products/:ProvisionedProductId",
+            "params": [
+              {
+                "name": "ProvisionedProductId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioned product identifier."
+              }
+            ]
+          },
+          "docs": "Gets information about the specified provisioned product."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Terminate Provisioned Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://servicecatalog.{region}.amazonaws.com/provisioned-products/:ProvisionedProductId",
+            "params": [
+              {
+                "name": "ProvisionedProductId",
+                "value": "",
+                "type": "path",
+                "description": "The provisioned product identifier."
+              }
+            ]
+          },
+          "docs": "Terminates the specified provisioned product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

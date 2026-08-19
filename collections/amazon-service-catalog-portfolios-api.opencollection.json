@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Service Catalog Portfolios API",
+    "version": "2015-12-10"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Portfolios",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Service Catalog List Portfolios",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios",
+            "params": [
+              {
+                "name": "PageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "The page token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Lists all portfolios in the account."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Create Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a portfolio."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Describe Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios/:PortfolioId",
+            "params": [
+              {
+                "name": "PortfolioId",
+                "value": "",
+                "type": "path",
+                "description": "The portfolio identifier."
+              }
+            ]
+          },
+          "docs": "Gets information about the specified portfolio."
+        },
+        {
+          "info": {
+            "name": "Amazon Service Catalog Delete Portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://servicecatalog.{region}.amazonaws.com/portfolios/:PortfolioId",
+            "params": [
+              {
+                "name": "PortfolioId",
+                "value": "",
+                "type": "path",
+                "description": "The portfolio identifier."
+              }
+            ]
+          },
+          "docs": "Deletes the specified portfolio."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
