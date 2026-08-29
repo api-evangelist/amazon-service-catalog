@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon Service Catalog Portfolios Products API
   description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.
@@ -107,6 +107,38 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ProductViewSummary:
+      type: object
+      description: Summary information about a product view.
+      properties:
+        Id:
+          type: string
+          description: The product view identifier.
+          example: prodview-a1b2c3
+        ProductId:
+          type: string
+          description: The product identifier.
+          example: prod-a1b2c3
+        Name:
+          type: string
+          description: The name of the product.
+          example: EC2 Instance
+        Owner:
+          type: string
+          description: The owner of the product.
+          example: IT Team
+        ShortDescription:
+          type: string
+          description: Short description of the product.
+        Type:
+          type: string
+          description: The product type.
+          enum:
+          - CLOUD_FORMATION_TEMPLATE
+          - MARKETPLACE
+          - TERRAFORM_OPEN_SOURCE
+          - TERRAFORM_CLOUD
+          - EXTERNAL
     CreateProductRequest:
       type: object
       required:
@@ -150,38 +182,6 @@ components:
               type: string
             ProductARN:
               type: string
-    ProductViewSummary:
-      type: object
-      description: Summary information about a product view.
-      properties:
-        Id:
-          type: string
-          description: The product view identifier.
-          example: prodview-a1b2c3
-        ProductId:
-          type: string
-          description: The product identifier.
-          example: prod-a1b2c3
-        Name:
-          type: string
-          description: The name of the product.
-          example: EC2 Instance
-        Owner:
-          type: string
-          description: The owner of the product.
-          example: IT Team
-        ShortDescription:
-          type: string
-          description: Short description of the product.
-        Type:
-          type: string
-          description: The product type.
-          enum:
-          - CLOUD_FORMATION_TEMPLATE
-          - MARKETPLACE
-          - TERRAFORM_OPEN_SOURCE
-          - TERRAFORM_CLOUD
-          - EXTERNAL
   securitySchemes:
     AWSSignatureV4:
       type: apiKey
