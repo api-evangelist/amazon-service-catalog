@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon Service Catalog Portfolios Provisioned Products API
+  title: Amazon Service Catalog Provisioned Products API
   description: AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage portfolios of products and control which users have access to which products for compliant, self-service provisioning.
   version: 2015-12-10
   contact:
@@ -110,33 +110,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ProvisionedProduct:
-      type: object
-      description: Information about a provisioned product.
-      properties:
-        RecordDetail:
-          type: object
-          properties:
-            RecordId:
-              type: string
-              description: The identifier of the record.
-              example: rec-a1b2c3d4
-            ProvisionedProductName:
-              type: string
-              description: The user-friendly name of the provisioned product.
-              example: my-ec2-instance
-            Status:
-              type: string
-              description: The status of the provisioned product.
-              enum:
-              - CREATED
-              - IN_PROGRESS
-              - IN_PROGRESS_IN_ERROR
-              - SUCCEEDED
-              - FAILED
-            ProvisionedProductId:
-              type: string
-              description: The identifier of the provisioned product.
     ProvisionProductRequest:
       type: object
       required:
@@ -166,6 +139,33 @@ components:
         ProvisionToken:
           type: string
           description: An idempotency token that uniquely identifies this provisioning request.
+    ProvisionedProduct:
+      type: object
+      description: Information about a provisioned product.
+      properties:
+        RecordDetail:
+          type: object
+          properties:
+            RecordId:
+              type: string
+              description: The identifier of the record.
+              example: rec-a1b2c3d4
+            ProvisionedProductName:
+              type: string
+              description: The user-friendly name of the provisioned product.
+              example: my-ec2-instance
+            Status:
+              type: string
+              description: The status of the provisioned product.
+              enum:
+              - CREATED
+              - IN_PROGRESS
+              - IN_PROGRESS_IN_ERROR
+              - SUCCEEDED
+              - FAILED
+            ProvisionedProductId:
+              type: string
+              description: The identifier of the provisioned product.
   securitySchemes:
     AWSSignatureV4:
       type: apiKey

@@ -154,25 +154,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreatePortfolioRequest:
-      type: object
-      required:
-      - DisplayName
-      - ProviderName
-      - IdempotencyToken
-      properties:
-        DisplayName:
-          type: string
-          description: The name to use for display purposes.
-        Description:
-          type: string
-          description: The description of the portfolio.
-        ProviderName:
-          type: string
-          description: The name of the portfolio provider.
-        IdempotencyToken:
-          type: string
-          description: A unique identifier that you provide to ensure idempotency.
     Portfolio:
       type: object
       description: Information about a Service Catalog portfolio.
@@ -201,6 +182,25 @@ components:
           type: string
           description: The name of the portfolio provider.
           example: IT Team
+    CreatePortfolioRequest:
+      type: object
+      required:
+      - DisplayName
+      - ProviderName
+      - IdempotencyToken
+      properties:
+        DisplayName:
+          type: string
+          description: The name to use for display purposes.
+        Description:
+          type: string
+          description: The description of the portfolio.
+        ProviderName:
+          type: string
+          description: The name of the portfolio provider.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier that you provide to ensure idempotency.
   securitySchemes:
     AWSSignatureV4:
       type: apiKey
