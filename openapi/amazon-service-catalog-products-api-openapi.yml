@@ -107,6 +107,36 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CreateProductRequest:
+      type: object
+      required:
+      - Name
+      - Owner
+      - ProductType
+      - ProvisioningArtifactParameters
+      - IdempotencyToken
+      properties:
+        Name:
+          type: string
+          description: The name of the product.
+        Owner:
+          type: string
+          description: The owner of the product.
+        Description:
+          type: string
+          description: The description of the product.
+        ProductType:
+          type: string
+          description: The type of product.
+          enum:
+          - CLOUD_FORMATION_TEMPLATE
+          - MARKETPLACE
+        ProvisioningArtifactParameters:
+          type: object
+          description: The configuration of the provisioning artifact.
+        IdempotencyToken:
+          type: string
+          description: A unique identifier for idempotency.
     ProductViewSummary:
       type: object
       description: Summary information about a product view.
@@ -152,36 +182,6 @@ components:
               type: string
             ProductARN:
               type: string
-    CreateProductRequest:
-      type: object
-      required:
-      - Name
-      - Owner
-      - ProductType
-      - ProvisioningArtifactParameters
-      - IdempotencyToken
-      properties:
-        Name:
-          type: string
-          description: The name of the product.
-        Owner:
-          type: string
-          description: The owner of the product.
-        Description:
-          type: string
-          description: The description of the product.
-        ProductType:
-          type: string
-          description: The type of product.
-          enum:
-          - CLOUD_FORMATION_TEMPLATE
-          - MARKETPLACE
-        ProvisioningArtifactParameters:
-          type: object
-          description: The configuration of the provisioning artifact.
-        IdempotencyToken:
-          type: string
-          description: A unique identifier for idempotency.
   securitySchemes:
     AWSSignatureV4:
       type: apiKey
