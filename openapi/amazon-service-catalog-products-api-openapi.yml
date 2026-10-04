@@ -137,6 +137,19 @@ components:
         IdempotencyToken:
           type: string
           description: A unique identifier for idempotency.
+    Product:
+      type: object
+      description: Information about a Service Catalog product.
+      properties:
+        ProductViewDetail:
+          type: object
+          properties:
+            ProductViewSummary:
+              $ref: '#/components/schemas/ProductViewSummary'
+            Status:
+              type: string
+            ProductARN:
+              type: string
     ProductViewSummary:
       type: object
       description: Summary information about a product view.
@@ -169,19 +182,6 @@ components:
           - TERRAFORM_OPEN_SOURCE
           - TERRAFORM_CLOUD
           - EXTERNAL
-    Product:
-      type: object
-      description: Information about a Service Catalog product.
-      properties:
-        ProductViewDetail:
-          type: object
-          properties:
-            ProductViewSummary:
-              $ref: '#/components/schemas/ProductViewSummary'
-            Status:
-              type: string
-            ProductARN:
-              type: string
   securitySchemes:
     AWSSignatureV4:
       type: apiKey
