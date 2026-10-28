@@ -1,4 +1,4 @@
-# Amazon Service Catalog (amazon-service-catalog)
+# Amazon Service Catalog
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,79 +66,177 @@
 
 AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on AWS. IT administrators can create and manage a portfolio of products (services, applications, and others) and control which users have access to which products.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml)
+**Areas:** AWS · Cloud Governance · Compliance · IT Governance · Service Catalog
 
-## Scope
+## Amazon Service Catalog on APIs.io
 
-- **Type:** Index
+Everything profiled for Amazon Service Catalog is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-service-catalog/](https://apis.io/providers/amazon-service-catalog/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (12)
 
-- AWS
-- Cloud Governance
-- Compliance
-- IT Governance
-- Service Catalog
+- [Amazon Service Catalog Portfolios API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-portfolios-api/) — Portfolio management operations
+- [Amazon Service Catalog Products API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-products-api/) — Product management operations
+- [Amazon Service Catalog Provisioned Products API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-provisioned-products-api/) — Provisioned product management
+- [Amazon Service Catalog Service Catalog Budget API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-budget-api/) — The Service Catalog Budget API from Amazon Service Catalog — 3 operation(s) for service catalog budget.
+- [Amazon Service Catalog Service Catalog Constraint API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-constraint-api/) — The Service Catalog Constraint API from Amazon Service Catalog — 5 operation(s) for service catalog constraint.
+- [Amazon Service Catalog Service Catalog Operations API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-operations-api/) — The Service Catalog Operations API from Amazon Service Catalog — 29 operation(s) for service catalog operations.
+- [Amazon Service Catalog Service Catalog Portfolio Share API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-portfolio-share-api/) — The Service Catalog Portfolio Share API from Amazon Service Catalog — 6 operation(s) for service catalog portfolio share.
+- [Amazon Service Catalog Service Catalog Principal API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-principal-api/) — The Service Catalog Principal API from Amazon Service Catalog — 3 operation(s) for service catalog principal.
+- [Amazon Service Catalog Service Catalog Provisioned Product Plan API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-provisioned-product-plan-api/) — The Service Catalog Provisioned Product Plan API from Amazon Service Catalog — 5 operation(s) for service catalog provisioned product plan.
+- [Amazon Service Catalog Service Catalog Provisioning Artifact API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-provisioning-artifact-api/) — The Service Catalog Provisioning Artifact API from Amazon Service Catalog — 6 operation(s) for service catalog provisioning artifact.
+- [Amazon Service Catalog Service Catalog Service Action API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-service-action-api/) — The Service Catalog Service Action API from Amazon Service Catalog — 10 operation(s) for service catalog service action.
+- [Amazon Service Catalog Service Catalog Tag Option API](https://apis.io/apis/amazon-service-catalog/amazon-service-catalog-tag-option-api/) — The Service Catalog Tag Option API from Amazon Service Catalog — 7 operation(s) for service catalog tag option.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### AWS Service Catalog API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The AWS Service Catalog API provides programmatic access to create and manage portfolios, products, provisioning artifacts, constraints, and service actions for IT service governance and self-service provisioning.
+- [Amazon Service Catalog Agentic Access](https://apis.io/agentic-access/amazon-service-catalog/amazon-service-catalog-agentic-access/)
 
-- **Human URL:** [https://aws.amazon.com/servicecatalog/](https://aws.amazon.com/servicecatalog/)
-- **Base URL:** `https://servicecatalog.amazonaws.com`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Cloud Governance
-- IT Governance
-- Service Catalog
+- [Portfolio](https://apis.io/schemas/amazon-service-catalog/amazon-service-catalog-portfolio/)
+- [ProductViewSummary](https://apis.io/schemas/amazon-service-catalog/amazon-service-catalog-product-view-summary/)
+- [ProvisionedProduct](https://apis.io/schemas/amazon-service-catalog/amazon-service-catalog-provisioned-product/)
 
-#### Properties
+#### JSON Structure (3)
 
-- [Documentation](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html)
-- [OpenAPI](https://api.apis.guru/v2/specs/amazonaws.com/servicecatalog/2015-12-10/openapi.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Getting Started](https://aws.amazon.com/servicecatalog/getting-started/)
-- [Pricing](https://aws.amazon.com/servicecatalog/pricing/)
-- [F A Q](https://aws.amazon.com/servicecatalog/faqs/)
-- [Postman Collection](collections/amazon-service-catalog.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-service-catalog.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Amazon Service Catalog Portfolio Structure](https://apis.io/json-structure/amazon-service-catalog/amazon-service-catalog-portfolio-structure/)
+- [Amazon Service Catalog Product View Summary Structure](https://apis.io/json-structure/amazon-service-catalog/amazon-service-catalog-product-view-summary-structure/)
+- [Amazon Service Catalog Provisioned Product Structure](https://apis.io/json-structure/amazon-service-catalog/amazon-service-catalog-provisioned-product-structure/)
 
-- [Portal](https://aws.amazon.com/servicecatalog/)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Service Catalog Context](https://apis.io/jsonld/amazon-service-catalog/amazon-service-catalog-context/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Amazon Service Catalog Portfolio Example](https://apis.io/examples/amazon-service-catalog/amazon-service-catalog-portfolio-example/)
+- [Amazon Service Catalog Product View Summary Example](https://apis.io/examples/amazon-service-catalog/amazon-service-catalog-product-view-summary-example/)
+- [Amazon Service Catalog Provisioned Product Example](https://apis.io/examples/amazon-service-catalog/amazon-service-catalog-provisioned-product-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [Amazon Service Catalog API](https://apis.io/collections/amazon-service-catalog/open-amazon-service-catalog/)
+- [Amazon Service Catalog Portfolios API](https://apis.io/collections/amazon-service-catalog/open-amazon-service-catalog-portfolios-api/)
+- [Amazon Service Catalog Portfolios Products API](https://apis.io/collections/amazon-service-catalog/open-amazon-service-catalog-products-api/)
+- [Amazon Service Catalog Portfolios Provisioned Products API](https://apis.io/collections/amazon-service-catalog/open-amazon-service-catalog-provisioned-products-api/)
+- [Amazon Service Catalog Portfolios API](https://apis.io/collections/amazon-service-catalog/postman-amazon-service-catalog-portfolios-api/)
+- [Amazon Service Catalog Portfolios Products API](https://apis.io/collections/amazon-service-catalog/postman-amazon-service-catalog-products-api/)
+- [Amazon Service Catalog Portfolios Provisioned Products API](https://apis.io/collections/amazon-service-catalog/postman-amazon-service-catalog-provisioned-products-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Service Catalog — jsonschema rules](https://apis.io/rules/amazon-service-catalog/amazon-service-catalog-jsonschema-spectral-rules/)
+- [Amazon Service Catalog API Rules](https://apis.io/rules/amazon-service-catalog/amazon-service-catalog-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Service Catalog Authentication](https://apis.io/security/amazon-service-catalog/amazon-service-catalog-authentication/)
+- [Amazon Service Catalog Domain Security](https://apis.io/security/amazon-service-catalog/amazon-service-catalog-domain-security/)
+- [Amazon Service Catalog Trust Center](https://apis.io/security/amazon-service-catalog/amazon-service-catalog-trust-center/)
+- [Amazon Service Catalog Vulnerability Disclosure](https://apis.io/security/amazon-service-catalog/amazon-service-catalog-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Service Catalog Plans Pricing](https://apis.io/plans/amazon-service-catalog/amazon-service-catalog-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Service Catalog Rate Limits](https://apis.io/rate-limits/amazon-service-catalog/amazon-service-catalog-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Service Catalog Finops](https://apis.io/finops/amazon-service-catalog/amazon-service-catalog-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/servicecatalog/)
 - [Documentation](https://docs.aws.amazon.com/servicecatalog/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/mt/tag/aws-service-catalog/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/servicecatalog/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [Status Page](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
-- [JSON-LD](json-ld/amazon-service-catalog-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/amazon-service-catalog-portfolio-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-service-catalog-product-view-summary-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-service-catalog-provisioned-product-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/amazon-service-catalog-portfolio-structure.json)
-- [JSON Structure](json-structure/amazon-service-catalog-product-view-summary-structure.json)
-- [JSON Structure](json-structure/amazon-service-catalog-provisioned-product-structure.json)
-- [Example](examples/amazon-service-catalog-portfolio-example.json)
-- [Example](examples/amazon-service-catalog-product-view-summary-example.json)
-- [Example](examples/amazon-service-catalog-provisioned-product-example.json)
-- [Spectral Rules](rules/amazon-service-catalog-spectral-rules.yml)
-- [Integrations](https://aws.amazon.com/partners/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 43.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 22.3 |
+| Contract governance | 13.6 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 53.9 |
+
+**Agent readiness 30.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-service-catalog/](https://apis.io/providers/amazon-service-catalog/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Service Catalog: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-service-catalog/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
