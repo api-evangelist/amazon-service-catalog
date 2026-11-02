@@ -1,0 +1,299 @@
+aid: amazon-service-catalog
+name: Amazon Service Catalog
+description: >-
+  AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for use on
+  AWS. IT administrators can create and manage a portfolio of products (services, applications, and others) and control
+  which users have access to which products.
+type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - security
+  generated: '2026-09-03'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-service-catalog.png
+tags:
+  - Amazon Web Services
+  - Cloud Governance
+  - Compliance
+  - IT Governance
+  - Service Catalog
+tags_raw:
+  - AWS
+  - Cloud Governance
+  - Compliance
+  - IT Governance
+  - Service Catalog
+url: https://raw.githubusercontent.com/api-evangelist/amazon-service-catalog/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-05-19'
+specificationVersion: '0.23'
+apis:
+- aid: amazon-service-catalog:amazon-service-catalog-portfolios-api
+  name: Amazon Service Catalog Portfolios API
+  description: Portfolio management operations
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Portfolio
+  tags_raw:
+  - Portfolios
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-portfolios-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-products-api
+  name: Amazon Service Catalog Products API
+  description: Product management operations
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Product
+  tags_raw:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-provisioned-products-api
+  name: Amazon Service Catalog Provisioned Products API
+  description: Provisioned product management
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Provisioned Products
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-provisioned-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/latest/dg/API_Reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/servicecatalog/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/servicecatalog/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/servicecatalog/faqs/
+- aid: amazon-service-catalog:amazon-service-catalog-budget-api
+  name: Amazon Service Catalog Service Catalog Budget API
+  description: >-
+    The Service Catalog Budget API from Amazon Service Catalog — 3 operation(s) for service catalog budget.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Budget
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-budget-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-constraint-api
+  name: Amazon Service Catalog Service Catalog Constraint API
+  description: >-
+    The Service Catalog Constraint API from Amazon Service Catalog — 5 operation(s) for service catalog
+    constraint.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Constraint
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-constraint-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-operations-api
+  name: Amazon Service Catalog Service Catalog Operations API
+  description: >-
+    The Service Catalog Operations API from Amazon Service Catalog — 29 operation(s) for service catalog
+    operations.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-operations-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-portfolio-share-api
+  name: Amazon Service Catalog Service Catalog Portfolio Share API
+  description: >-
+    The Service Catalog Portfolio Share API from Amazon Service Catalog — 6 operation(s) for service catalog
+    portfolio share.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Portfolio Share
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-portfolio-share-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-principal-api
+  name: Amazon Service Catalog Service Catalog Principal API
+  description: >-
+    The Service Catalog Principal API from Amazon Service Catalog — 3 operation(s) for service catalog
+    principal.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Principal
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-principal-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-provisioned-product-plan-api
+  name: Amazon Service Catalog Service Catalog Provisioned Product Plan API
+  description: >-
+    The Service Catalog Provisioned Product Plan API from Amazon Service Catalog — 5 operation(s) for
+    service catalog provisioned product plan.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Provisioned Product Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-provisioned-product-plan-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-provisioning-artifact-api
+  name: Amazon Service Catalog Service Catalog Provisioning Artifact API
+  description: >-
+    The Service Catalog Provisioning Artifact API from Amazon Service Catalog — 6 operation(s) for service
+    catalog provisioning artifact.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Provisioning Artifact
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-provisioning-artifact-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-service-action-api
+  name: Amazon Service Catalog Service Catalog Service Action API
+  description: >-
+    The Service Catalog Service Action API from Amazon Service Catalog — 10 operation(s) for service catalog
+    service action.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Service Action
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-service-action-api-openapi.yml
+- aid: amazon-service-catalog:amazon-service-catalog-tag-option-api
+  name: Amazon Service Catalog Service Catalog Tag Option API
+  description: >-
+    The Service Catalog Tag Option API from Amazon Service Catalog — 7 operation(s) for service catalog
+    tag option.
+  humanURL: https://aws.amazon.com/servicecatalog/
+  baseURL: https://servicecatalog.amazonaws.com
+  tags:
+  - Service Catalog Tag Option
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-service-catalog-tag-option-api-openapi.yml
+common:
+  - type: Plans
+    url: plans/amazon-service-catalog-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/amazon-service-catalog-rate-limits.yml
+  - type: FinOps
+    url: finops/amazon-service-catalog-finops.yml
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-service-catalog/overview
+  - type: AgenticAccess
+    url: agentic-access/amazon-service-catalog-agentic-access.yml
+  - type: TrustCenter
+    url: security/amazon-service-catalog-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-service-catalog-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-service-catalog-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-service-catalog-authentication.yml
+  - type: Portal
+    url: https://aws.amazon.com/servicecatalog/
+  - type: Website
+    url: https://aws.amazon.com/servicecatalog/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/servicecatalog/
+  - type: TermsOfService
+    url: https://aws.amazon.com/service-terms/
+  - type: PrivacyPolicy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/mt/tag/aws-service-catalog/
+  - type: GitHubOrganization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/servicecatalog/
+  - type: Signup
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: Login
+    url: https://signin.aws.amazon.com/
+  - type: StatusPage
+    url: https://health.aws.amazon.com/health/status
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+  - type: JSONLD
+    url: json-ld/amazon-service-catalog-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-service-catalog-portfolio-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-service-catalog-product-view-summary-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-service-catalog-provisioned-product-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-service-catalog-portfolio-structure.json
+  - type: JSONStructure
+    url: json-structure/amazon-service-catalog-product-view-summary-structure.json
+  - type: JSONStructure
+    url: json-structure/amazon-service-catalog-provisioned-product-structure.json
+  - type: Examples
+    url: examples/amazon-service-catalog-portfolio-example.json
+  - type: Examples
+    url: examples/amazon-service-catalog-product-view-summary-example.json
+  - type: Examples
+    url: examples/amazon-service-catalog-provisioned-product-example.json
+  - type: SpectralRules
+    url: rules/amazon-service-catalog-spectral-rules.yml
+  - type: Integrations
+    url: https://aws.amazon.com/partners/
+integrations:
+  - name: Partner Programs
+  - name: Resources
+  - name: Success Stories
+  - name: Work with an AWS Partner
+  - name: AWS Marketplace
+  - name: AWS Partner Central
+  - name: Partner Paths
+  - name: co-sell with AWS
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-parent: amazon-web-services
+x-relationship: product

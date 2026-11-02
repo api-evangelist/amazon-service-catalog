@@ -1,0 +1,63 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/servicecatalog/pricing/
+sources:
+- https://aws.amazon.com/servicecatalog/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Per-call pricing table uses an unresolved region/price placeholder ({priceOf...}, '14 calls for
+  1 cent'); the $0.0007 per call figure is taken verbatim from the pricing examples. AppRegistry application
+  creation/resource association/tagging API actions are always free.
+plan_count: 2
+currency: USD
+plans:
+- name: Free tier
+  price_text: 1-1,000 Free
+  currency: USD
+  period: month
+  unit: API calls per account, region, and month
+  included_quota: 1,000 API calls per account, region, and month
+  overage: Charged per API call over 1,000
+- name: AWS Service Catalog API calls over 1,000
+  price_text: $0.0007 per call
+  price: 0.0007
+  currency: USD
+  period: per-use
+  unit: API call
+rate_limit_statements:
+- Limits may apply.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - request
+  plans:
+  - name: Free tier
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - request
+    periods:
+    - month
+  - name: AWS Service Catalog API calls over 1,000
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
